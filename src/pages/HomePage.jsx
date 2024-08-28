@@ -65,7 +65,7 @@ const HomePage = ({ scrollToSection }) => {
               <button
                 className="text-overlay bottom-text overlay-with-border Montserrat"
                 
-              ><a href="">  Download CV</a>
+              ><a href="https://drive.google.com/file/d/1ArmxWjgdUsmu-68T5Q_zvfnKYZu6OHvr/view?usp=sharing">  Download CV</a>
               </button>
       
         </div>
