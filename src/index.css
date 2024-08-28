@@ -30,15 +30,14 @@
 .MontserratBold{
   font-family:MontserratBold
 }
-@layer base {
+@media (max-width: 768px) {
   .container {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap onto multiple lines */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-
+   
+    transform: scale(1); /* Atur nilai scale sesuai kebutuhan */
+    transform-origin: top left; /* Mengatur titik transformasi sesuai kebutuhan */
   }
 }
+
 
 
 :root {
