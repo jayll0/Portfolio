@@ -9,7 +9,7 @@ export const profile = {
   whatsapp: 'https://wa.link/w5jijv',
   linkedin: 'https://www.linkedin.com/in/arya-wijayaprogrammer',
   github: 'https://github.com/jayll0',
-  cv: 'https://drive.google.com/file/d/1ArmxWjgdUsmu-68T5Q_zvfnKYZu6OHvr/view?usp=sharing',
+  cv: 'https://drive.google.com/file/d/1HVAKI3mJLJlb1OTKnc620aWnFh506Ri1/view?usp=sharing',
 }
 
 export const summary = [
