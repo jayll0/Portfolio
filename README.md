@@ -1,8 +1,36 @@
-# React + Vite
+# Arya Wijaya — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site. Single scrolling page: Hero, About, Experience (professional /
+hackathon / organizational), Academic Projects, Technical Skills, Contact.
 
-Currently, two official plugins are available:
+**Stack:** React 18, Vite 5, Tailwind CSS 3, Framer Motion.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Running locally
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Editing content
+
+All text lives in `src/data/cv.js` — profile, summary, experience, hackathons,
+organizations, projects, skills, and the nav items. Components read from that file, so
+content changes never require touching JSX.
+
+## Structure
+
+```
+src/
+  data/cv.js          all page content
+  components/         Navbar, Section wrapper, transparent Card
+  sections/           Hero, About, Experience, Projects, Skills, Contact
+  index.css           design tokens, fonts, .card / .shell / .section utilities
+```
