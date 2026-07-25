@@ -1,66 +1,55 @@
-import React, { useRef, useEffect, useState } from 'react';
-import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import GalleryPage from './pages/GalleryPage';
-import BackgroundPage from './pages/BackgroundPage';
-import AboutPage from './pages/AboutPage';
+import { useEffect, useState } from 'react'
+import Navbar from './components/Navbar'
+import Hero from './sections/Hero'
+import About from './sections/About'
+import Experience from './sections/Experience'
+import Projects from './sections/Projects'
+import Skills from './sections/Skills'
+import Contact from './sections/Contact'
+import { navItems, profile } from './data/cv'
 
 const App = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-  const homeRef = useRef(null);
-  const galleryRef = useRef(null);
-  const backgroundRef = useRef(null);
-  const aboutRef = useRef(null);
-
-  const sectionRefs = {
-    home: homeRef,
-    about: aboutRef,
-    background: backgroundRef,
-    gallery: galleryRef
-  };
-
-  const scrollToSection = (section) => {
-    sectionRefs[section]?.current.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [activeId, setActiveId] = useState('home')
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const index = Object.keys(sectionRefs).indexOf(entry.target.id);
-          setActiveIndex(index);
-        }
-      });
-    }, { threshold: 0.5 });
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter(Boolean)
 
-    Object.values(sectionRefs).forEach(ref => {
-      if (ref.current) observer.observe(ref.current);
-    });
+    // rootMargin offsets the fixed navbar; the topmost visible section wins
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+        if (visible.length) setActiveId(visible[0].target.id)
+      },
+      { rootMargin: '-60px 0px -55% 0px', threshold: 0 }
+    )
 
-    return () => {
-      Object.values(sectionRefs).forEach(ref => {
-        if (ref.current) observer.unobserve(ref.current);
-      });
-    };
-  }, []);
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div>
-      <Navbar scrollToSection={scrollToSection} sections={Object.keys(sectionRefs)} activeIndex={activeIndex} />
-      <div ref={homeRef} id="home" className="section">
-        <HomePage scrollToSection={scrollToSection} />
-      </div>
-      <div ref={aboutRef} id="about" className="section">
-        <AboutPage />
-      </div>
-      <div ref={backgroundRef} id="background" className="section">
-        <BackgroundPage />
-      </div>
-      <div ref={galleryRef} id="gallery" className="section">
-        <GalleryPage />
-      </div>
-    </div>
-  );
-};
+    <>
+      <Navbar activeId={activeId} />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+      <footer className="border-t border-white/10 py-8">
+        <div className="shell flex flex-col gap-2 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} {profile.name}</p>
+          <p>Built with React, Vite, and Tailwind CSS</p>
+        </div>
+      </footer>
+    </>
+  )
+}
 
-export default App;
+export default App

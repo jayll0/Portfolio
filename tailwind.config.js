@@ -1,26 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        accent: '#00ff99',
+        ink: '#05060a',
+      },
       fontFamily: {
-        quattrocento: 'Quattrocento',  // Tailwind akan merender ini menjadi 'font-quattrocento'
-        montserrat: ['Montserrat'],
-        bold:[   'MontserratBold'], // Ini menjadi 'font-montserrat'
+        display: ['Quattrocento', 'Georgia', 'serif'],
+        body: ['Montserrat', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: {
+        shell: '1120px',
       },
     },
-  },
-  plugins: [],
-}
-
-module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: {
-    extend: {},
   },
   plugins: [],
 }
