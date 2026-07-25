@@ -25,7 +25,7 @@
 /* ---------- Tokens ---------- */
 :root {
   --bg: #05060a;
-  --accent: #00ff99;
+  --accent: #68F3F8;
   --text: rgba(255, 255, 255, 0.9);
   --muted: rgba(255, 255, 255, 0.56);
   --card: rgba(255, 255, 255, 0.04);
@@ -116,7 +116,7 @@
 
   .card:hover {
     background: var(--card-hover);
-    border-color: rgba(0, 255, 153, 0.35);
+    border-color: rgba(104, 243, 248, 0.35);
     transform: translateY(-3px);
   }
 
@@ -152,8 +152,8 @@
 
   .btn:hover {
     border-color: var(--accent);
-    background: rgba(0, 255, 153, 0.08);
-    box-shadow: 0 0 18px rgba(0, 255, 153, 0.18);
+    background: rgba(104, 243, 248, 0.08);
+    box-shadow: 0 0 18px rgba(104, 243, 248, 0.18);
   }
 
   /* Fluid type — replaces the old fixed font sizes + transform: scale() hack */

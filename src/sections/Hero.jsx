@@ -93,7 +93,7 @@ const Hero = () => {
 
           {/* Right column — scales with its container instead of a fixed 400px */}
           <div className="relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-[400px]">
-            <Ring radius="190" stroke="#00ff99" direction={1} duration={22} still={reduced} />
+            <Ring radius="190" stroke="#68F3F8" direction={1} duration={22} still={reduced} />
             <Ring radius="150" stroke="rgba(255,255,255,0.5)" direction={-1} duration={30} still={reduced} />
             <img
               src={portrait}
