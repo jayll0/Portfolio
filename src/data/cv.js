@@ -2,7 +2,7 @@ export const profile = {
   name: 'Arya Wijaya',
   headline: 'I am a',
   roles: ['Software Engineer', 'Backend Developer', 'Problem Solver'],
-  location: 'Tangerang, Indonesia',
+  location: 'Bandung, Indonesia',
   email: 'aryawijaya6664@gmail.com',
   mailto:
     'https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=aryawijaya6664@gmail.com',
